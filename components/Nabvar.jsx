@@ -1,5 +1,5 @@
 "use client";
-
+// components/Nabvar.jsx
 import MyLightImage from '@/public/logo.svg';
 import MyDarkImage from '@/public/logo.svg';
 import * as React from "react";

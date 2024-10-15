@@ -13,13 +13,12 @@ import LastProjects from '@/components/component/last-projects';
 import ContentCardsBlog from '@/components/component/content-cards-blog';
 import Navbar from "@/components/Nabvar"
 import NabvarUsers from "@/components/NabvarUsers"
-import { useSession } from "next-auth/react"
 
 export default function Home() {
-  const { data: session, status } = useSession()
+ 
   return (
     <>
-      {session ? <NabvarUsers /> : <Navbar />}
+    <Navbar />
       <Baner />
       <MultiCards  />
       <Servicios />
