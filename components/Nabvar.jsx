@@ -178,7 +178,7 @@ export default function Navbar() {
         <NavigationMenuDemo />
       </NavigationMenu>
       <section className="flex w-1/4 items-center justify-end  gap-4">
-        <Link href="/login" className="dark:text-zinc-100 border rounded-lg text-sm dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">Iniciar sesión</Link>
+        <Link href="#contacto" className="dark:text-zinc-100 border rounded-lg text-sm dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">Contactar</Link>
        
         <div className="hidden md:block">
           <ThemeMode toggleTheme={toggleTheme} />

@@ -24,7 +24,7 @@ export default function Home() {
       <MultiCards  />
       <Servicios />
       <Testimonials />
-      <Hero />
+      {/* <Hero /> */}
       <LastProjects />
     
      
