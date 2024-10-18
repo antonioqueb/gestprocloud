@@ -53,7 +53,7 @@ export default function LastProjects() {
             <CardContent className="grid gap-2">
               <img
                 alt={`Imagen de ${project.title}`}
-                className="rounded-lg object-cover w-full aspect-[3/2]"
+                className="rounded-lg object-cover w-full aspect-[4/2.2]"
                 height={400}
                 src={project.imageSrc}
                 width={600}
