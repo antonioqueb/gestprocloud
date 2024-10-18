@@ -2,34 +2,35 @@ import Link from "next/link";
 
 // Diccionario de textos (copy)
 const copy = {
-  title: "Principales Oportunidades",
+  title: "Nuestros Servicios",
   description:
-    "Tu empresa puede dejar atrás esos desafíos con nuestras soluciones. Imagina sistemas que funcionan a la perfección, procesos automatizados y una comunicación interna impecable. Con años de experiencia y un historial probado, nuestro equipo está listo para guiarte hacia la Integración de Sistemas, el Desarrollo de Software y la Arquitectura de Software.",
+    "Ofrecemos soluciones enfocadas en resolver retos específicos de tu negocio, integrando tecnología que potencia tu operación y facilita el crecimiento.",
   services: [
     {
-      title: "Desarrollo de Software",
+      title: "Desarrollo de Software Personalizado",
       description:
-        "Creamos soluciones personalizadas adaptadas a las necesidades específicas de tu negocio, utilizando las últimas tecnologías del mercado.",
-      imageSrc: "/softwae-development.jpg",
+        "Diseñamos aplicaciones alineadas a tus necesidades operativas, optimizando procesos críticos y mejorando la productividad.",
+      imageSrc: "/equipo.jpg",
       imageAlt: "Desarrollo de Software",
     },
     {
-      title: "Integraciones Complejas",
+      title: "Integraciones de Sistemas",
       description:
-        "Especialistas en integrar diferentes sistemas y plataformas, asegurando una comunicación fluida y eficiente entre tus herramientas digitales.",
+        "Conectamos plataformas y herramientas clave para garantizar un flujo de trabajo eficiente y una gestión centralizada.",
       imageSrc: "/integrations.jpg",
-      imageAlt: "Integraciones Complejas",
+      imageAlt: "Integraciones de Sistemas",
     },
     {
-      title: "Arquitectura de Software",
+      title: "Arquitectura de Software Escalable",
       description:
-        "Diseñamos la arquitectura de tu software, garantizando un sistema escalable, seguro y de alto rendimiento.",
+        "Construimos infraestructuras robustas que aseguran rendimiento, seguridad y adaptabilidad al crecimiento futuro.",
       imageSrc: "/devops.jpg",
-      imageAlt: "Diseño de Interfaces",
+      imageAlt: "Arquitectura de Software",
     },
   ],
-  learnMore: "Saber Más →",
+  learnMore: "Conoce más →",
 };
+
 
 export default function Servicios() {
   return (
@@ -60,9 +61,9 @@ export default function Servicios() {
             </div>
             <div className="mt-4 flex flex-col gap-2 justify-between">
               <div className="px-2">
-                <h3 className="text-xl text-zinc-700 dark:text-zinc-50">
+                <h3 className="text-xl text-zinc-700 dark:text-zinc-50 font-medium">
                   <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0" />
+                    <span aria-hidden="true" className="absolute inset-0v " />
                     {service.title}
                   </a>
                 </h3>

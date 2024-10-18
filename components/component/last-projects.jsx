@@ -3,26 +3,26 @@ import Link from "next/link";
 
 // Diccionario de textos (copy)
 const copy = {
-  title: "Últimos Proyectos",
+  title: "Últimas Colaboraciones",
   description:
     "Explora algunos de nuestros proyectos recientes que han ayudado a nuestros clientes a alcanzar sus objetivos de manera más eficiente y efectiva.",
   projects: [
     {
-      title: "Historial Laboral",
-      description: "historial-laboral.com",
-      imageSrc: "/historial-laboral.jpg",
+      title: "Gestpro Cloud",
+      description: "https://gestpro.cloud",
+      imageSrc: "/gestpro.png",
       icon: <HomeIcon className="w-8 h-8" />,
     },
     {
-      title: "Marketing Web",
-      description: "marketing-website.gestpro.cloud",
-      imageSrc: "/mkt.png",
+      title: "Gestiones Empresariales de Campeche, S.C.",
+      description: "https://gestiones-empresariales-campeche.online",
+      imageSrc: "/gec.png",
       icon: <BookOpenIcon className="w-8 h-8" />,
     },
     {
-      title: "Ark Project",
-      description: "arktoart.es",
-      imageSrc: "/ark.png",
+      title: "Inventario Plus",
+      description: "https://inventario-plus.online",
+      imageSrc: "/inventario-plus.png",
       icon: <LayoutPanelLeftIcon className="w-8 h-8" />,
     },
   ],

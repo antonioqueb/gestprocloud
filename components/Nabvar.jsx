@@ -1,7 +1,7 @@
 "use client";
 // components/Nabvar.jsx
-import MyLightImage from '@/public/logo.svg';
-import MyDarkImage from '@/public/logo.svg';
+import MyLightImage from '@/public/fb.svg';
+import MyDarkImage from '@/public/fn.svg';
 import * as React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -49,7 +49,7 @@ function NavigationMenuDemo() {
                 <NavigationMenuLink asChild>
                   <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md" href="/">
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      <Image src="/logo.svg" width={150} height={150} alt="logo" />
+                      <Image src="/fb.svg" width={210} height={210} alt="logo" />
                     </div>
                     <p className="text-lg leading-tight text-muted-foreground">
                       Beautifully designed components built with Radix UI and Tailwind CSS.
@@ -158,8 +158,8 @@ export default function Navbar() {
               <Image
                 src={MyDarkImage}
                 alt="My image"
-                width={50}
-                height={50}
+                width={75}
+                height={75}
               />
             </div>
           ) : (
@@ -167,8 +167,8 @@ export default function Navbar() {
               <Image
                 src={MyLightImage}
                 alt="My image"
-                width={50}
-                height={50}
+                width={75}
+                height={75}
               />
             </div>
           )}

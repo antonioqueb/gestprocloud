@@ -1,34 +1,170 @@
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+
+// Diccionario de textos (copy)
+const copy = {
+  title: "Consultora de software para sistematizar procesos y acelerar el crecimiento",
+  description:
+    "En Alphaqueb Consulting transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales.",
+  bannerAlt: "Consultora de software - Impulsa la eficiencia y el crecimiento con Alphaqueb Consulting",
+};
+
+// Opciones de países
+const countries = [
+  // Norteamérica
+  { code: "+52", label: "🇲🇽 +52 (México)" },
+  { code: "+1", label: "🇺🇸 +1 (EE.UU.)" },
+  { code: "+1", label: "🇨🇦 +1 (Canadá)" },
+
+  // Centroamérica
+  { code: "+502", label: "🇬🇹 +502 (Guatemala)" },
+  { code: "+503", label: "🇸🇻 +503 (El Salvador)" },
+  { code: "+504", label: "🇭🇳 +504 (Honduras)" },
+  { code: "+505", label: "🇳🇮 +505 (Nicaragua)" },
+  { code: "+506", label: "🇨🇷 +506 (Costa Rica)" },
+  { code: "+507", label: "🇵🇦 +507 (Panamá)" },
+
+  // Caribe
+  { code: "+53", label: "🇨🇺 +53 (Cuba)" },
+  { code: "+1", label: "🇯🇲 +1 (Jamaica)" },
+
+  // Sudamérica
+  { code: "+54", label: "🇦🇷 +54 (Argentina)" },
+  { code: "+55", label: "🇧🇷 +55 (Brasil)" },
+  { code: "+56", label: "🇨🇱 +56 (Chile)" },
+  { code: "+57", label: "🇨🇴 +57 (Colombia)" },
+  { code: "+58", label: "🇻🇪 +58 (Venezuela)" },
+  { code: "+51", label: "🇵🇪 +51 (Perú)" },
+  { code: "+598", label: "🇺🇾 +598 (Uruguay)" },
+  { code: "+591", label: "🇧🇴 +591 (Bolivia)" },
+  { code: "+593", label: "🇪🇨 +593 (Ecuador)" },
+  { code: "+595", label: "🇵🇾 +595 (Paraguay)" },
+
+  // Europa
+  { code: "+34", label: "🇪🇸 +34 (España)" },
+  { code: "+44", label: "🇬🇧 +44 (Reino Unido)" },
+  { code: "+49", label: "🇩🇪 +49 (Alemania)" },
+  { code: "+33", label: "🇫🇷 +33 (Francia)" },
+  { code: "+39", label: "🇮🇹 +39 (Italia)" },
+
+  // Asia
+  { code: "+81", label: "🇯🇵 +81 (Japón)" },
+  { code: "+86", label: "🇨🇳 +86 (China)" },
+  { code: "+91", label: "🇮🇳 +91 (India)" },
+  { code: "+82", label: "🇰🇷 +82 (Corea del Sur)" },
+
+  // Oceanía
+  { code: "+61", label: "🇦🇺 +61 (Australia)" },
+  { code: "+64", label: "🇳🇿 +64 (Nueva Zelanda)" },
+
+  // Medio Oriente
+  { code: "+971", label: "🇦🇪 +971 (Emiratos Árabes)" },
+  { code: "+90", label: "🇹🇷 +90 (Turquía)" },
+  { code: "+972", label: "🇮🇱 +972 (Israel)" },
+
+  // África
+  { code: "+27", label: "🇿🇦 +27 (Sudáfrica)" },
+  { code: "+234", label: "🇳🇬 +234 (Nigeria)" },
+  { code: "+20", label: "🇪🇬 +20 (Egipto)" },
+];
+
 
 export default function Banner() {
+  const [countryCode, setCountryCode] = useState({ code: "+52", label: "🇲🇽 +52 (México)" });
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleSend = () => {
+    console.log(`Enviando: ${countryCode.code} ${phoneNumber}`);
+  };
+
+  const handleSelectCountry = (country) => {
+    setCountryCode(country);
+    setIsDropdownOpen(false);
+    setSearchTerm(""); // Limpiar búsqueda al seleccionar
+  };
+
+  const filteredCountries = countries.filter((country) =>
+    country.label.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section className="w-full flex flex-col lg:flex-row xl:pb-2">
-      <div className=" w-full lg:w-7/12  py-2 flex flex-col justify-center">
-        <CardHeader className="text-start animate-fade-in-up px-0 ">
-          <CardTitle className="text-3xl text-balance md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl font-bold text-zinc-800 mb-3 dark:text-zinc-100">
-          Desarrollamos tecnología para optimizar empresas.
+      <div className="w-full lg:w-7/12 py-2 flex flex-col justify-center">
+        <CardHeader className="text-start animate-fade-in-up px-0">
+          <CardTitle className="text-3xl text-balance md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-7xl font-bold text-zinc-800 mb-3 dark:text-zinc-100">
+            {copy.title}
           </CardTitle>
           <CardDescription className="text-lg md:text-xl text-zinc-800 mb-3 text-balance dark:text-zinc-100 lg:pr-16">
-          Las empresas y grupos comerciales a menudo enfrentan desafíos significativos para optimizar sus operaciones y mejorar la eficiencia. Estos problemas pueden obstaculizar su crecimiento y éxito.
+            {copy.description}
           </CardDescription>
-          <div className="flex w-full flex-col md:flex-row pt-12 md:items-center py-6 space-y-4 md:space-y-0 md:space-x-4 w-10/12 lg:w-10/12 ">
-            <Link href="/iniciar-proyecto">
-              <p className="bg-primary text-white font-semibold dark:text-zinc-100 border border-primary p-3 h-12 rounded-lg text-xl text-center flex items-center justify-center flex-grow md:flex-grow-0">
-              Crear Proyecto
-              </p>
-            </Link>
-            <Link href="#FormHero">
-              <p className=" text-zinc-900 border  font-semibold dark:text-zinc-100  p-3 h-12 rounded-lg text-xl text-center flex items-center justify-center flex-grow md:flex-grow-0 md:border-none">
-              Recibir Presupuesto
-              </p>
-            </Link>
+          <div className="flex flex-col md:flex-row items-center pt-12 space-y-4 md:space-y-0 md:space-x-4 w-10/12 lg:w-10/12">
+        {/* Selector */}
+          <div className="relative w-56">
+            <div
+              className="w-full px-4 py-2 h-12 rounded-lg shadow-md bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-600 cursor-pointer flex items-center"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              {countryCode.label}
+            </div>
+            {isDropdownOpen && (
+              <div className="absolute z-10 top-14 w-full bg-white dark:bg-zinc-800 shadow-lg rounded-lg border border-zinc-300 dark:border-zinc-600">
+                <input
+                  type="text"
+                  placeholder="Buscar país"
+                  className="w-full px-4 py-2 rounded-t-lg focus:outline-none dark:text-zinc-200"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <ul>
+                  {filteredCountries.length > 0 ? (
+                    filteredCountries.map((country) => (
+                      <li
+                        key={country.code}
+                        className="px-8 py-2 cursor-pointer hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-700"
+                        onClick={() => handleSelectCountry(country)}
+                      >
+                        {country.label}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="px-4 py-2 text-center text-zinc-500">No encontrado</li>
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
+
+          {/* Input de Teléfono */}
+          <input
+            type="text"
+            className="w-56 px-4 py-2 h-12 rounded-lg shadow-md border border-zinc-300 dark:border-zinc-600 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all duration-300 dark:bg-zinc-800 dark:text-white" 
+            placeholder="Teléfono"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+
+          {/* Botón */}
+          <button
+            className="bg-primary text-white font-semibold px-4 py-2 h-12 rounded-lg text-xl shadow-md hover:bg-primary-dark transition-all duration-300 ease-in-out transform hover:scale-105"
+            onClick={handleSend}
+          >
+            Enviar
+          </button>
+        </div>
+
         </CardHeader>
       </div>
-      <div className="w-full lg:w-5/12  py-4 flex items-center justify-center">
-        <Image src="/banner.svg" width={500} height={200} alt="Banner" className="lg:w-[640px] lg:h-[440px] 2xl:w-[640px] 2xl:h-[525px]" />
+      <div className="w-full lg:w-5/12 py-4 flex items-center justify-center">
+        <Image
+          src="/banner.svg"
+          width={500}
+          height={200}
+          alt={copy.bannerAlt}
+          className="lg:w-[640px] lg:h-[440px] 2xl:w-[640px] 2xl:h-[525px]"
+        />
       </div>
     </section>
   );
