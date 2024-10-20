@@ -186,7 +186,7 @@ export default function Navbar() {
           <ThemeMode toggleTheme={toggleTheme} />
         </div>
         {/* Mobile Menu Button */}
-        <Drawer>
+        <Drawer open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <DrawerTrigger asChild>
             <button onClick={toggleMenu} className="md:hidden">
               <AiOutlineMenu size={28} className="dark:text-zinc-100" />
@@ -203,48 +203,48 @@ export default function Navbar() {
               </button>
             </DrawerHeader>
             <DrawerDescription className="flex flex-col gap-4 p-4">
-              <NavigationMenuLink
+              <Link
                 href="/"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Inicio
-              </NavigationMenuLink>
-              <NavigationMenuLink
+              </Link>
+              <Link
                 href="/web-dev"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Desarrollo Web
-              </NavigationMenuLink>
-              <NavigationMenuLink
+              </Link>
+              <Link
                 href="/app-dev"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Desarrollo de Apps
-              </NavigationMenuLink>
-              <NavigationMenuLink
+              </Link>
+              <Link
                 href="/custom-soft"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Software a Medida
-              </NavigationMenuLink>
-              <NavigationMenuLink
+              </Link>
+              <Link
                 href="/about"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Nosotros
-              </NavigationMenuLink>
-              <NavigationMenuLink
+              </Link>
+              <Link
                 href="/contact"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
                 Contacto
-              </NavigationMenuLink>
+              </Link>
               <div className="mt-4">
                 <ThemeMode toggleTheme={toggleTheme} />
               </div>
