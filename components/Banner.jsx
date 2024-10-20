@@ -69,15 +69,51 @@ const countries = [
   { code: "+20", label: "🇪🇬 +20 (Egipto)" },
 ];
 
-
 export default function Banner() {
   const [countryCode, setCountryCode] = useState({ code: "+52", label: "🇲🇽 +52 (México)" });
   const [phoneNumber, setPhoneNumber] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [status, setStatus] = useState(null);
 
-  const handleSend = () => {
-    console.log(`Enviando: ${countryCode.code} ${phoneNumber}`);
+  const handleSend = async () => {
+    // Validar que el número de teléfono no esté vacío
+    if (!phoneNumber) {
+      setStatus('empty');
+      return;
+    }
+
+    const data = {
+      country_code: countryCode.code.replace("+", ""), // Remover el '+' del código de país
+      phone_number: phoneNumber,
+      user_id: 2,     // ID del usuario
+      company_id: 1,  // ID de la empresa
+    };
+
+    try {
+      const response = await fetch('https://contact.alphaqueb.com/create_contact_phone', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Agrega cualquier encabezado adicional si es necesario
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el número de teléfono');
+      }
+
+      const result = await response.json();
+      console.log('Respuesta de la API:', result);
+
+      setStatus('success');
+      // Limpiar el número de teléfono después de enviar
+      setPhoneNumber("");
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('error');
+    }
   };
 
   const handleSelectCountry = (country) => {
@@ -94,67 +130,77 @@ export default function Banner() {
     <section className="w-full flex flex-col lg:flex-row xl:pb-2">
       <div className="w-full lg:w-7/12 py-2 flex flex-col justify-center">
         <CardHeader className="text-start animate-fade-in-up px-0">
-          <CardTitle className="text-3xl text-balance md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-7xl font-bold text-zinc-800 mb-3 dark:text-zinc-100">
+          <CardTitle className="text-3xl text-balance md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-zinc-800 mb-3 dark:text-zinc-100">
             {copy.title}
           </CardTitle>
           <CardDescription className="text-lg md:text-xl text-zinc-800 mb-3 text-balance dark:text-zinc-100 lg:pr-16">
             {copy.description}
           </CardDescription>
           <div className="flex flex-col md:flex-row items-center pt-12 space-y-4 md:space-y-0 md:space-x-4 w-10/12 lg:w-10/12">
-        {/* Selector */}
-          <div className="relative w-56">
-            <div
-              className="w-full px-4 py-2 h-12 rounded-lg shadow-md bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-600 cursor-pointer flex items-center"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              {countryCode.label}
-            </div>
-            {isDropdownOpen && (
-              <div className="absolute z-10 top-14 w-full bg-white dark:bg-zinc-800 shadow-lg rounded-lg border border-zinc-300 dark:border-zinc-600">
-                <input
-                  type="text"
-                  placeholder="Buscar país"
-                  className="w-full px-4 py-2 rounded-t-lg focus:outline-none dark:text-zinc-200"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <ul>
-                  {filteredCountries.length > 0 ? (
-                    filteredCountries.map((country) => (
-                      <li
-                        key={country.code}
-                        className="px-8 py-2 cursor-pointer hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-700"
-                        onClick={() => handleSelectCountry(country)}
-                      >
-                        {country.label}
-                      </li>
-                    ))
-                  ) : (
-                    <li className="px-4 py-2 text-center text-zinc-500">No encontrado</li>
-                  )}
-                </ul>
+            {/* Selector */}
+            <div className="relative w-56">
+              <div
+                className="w-full px-4 py-2 h-12 rounded-lg shadow-md bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-600 cursor-pointer flex items-center"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                {countryCode.label}
               </div>
-            )}
+              {isDropdownOpen && (
+                <div className="absolute z-10 top-14 w-full bg-white dark:bg-zinc-800 shadow-lg rounded-lg border border-zinc-300 dark:border-zinc-600">
+                  <input
+                    type="text"
+                    placeholder="Buscar país"
+                    className="w-full px-4 py-2 rounded-t-lg focus:outline-none dark:text-zinc-200"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <ul>
+                    {filteredCountries.length > 0 ? (
+                      filteredCountries.map((country) => (
+                        <li
+                          key={country.code + country.label}
+                          className="px-8 py-2 cursor-pointer hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-700"
+                          onClick={() => handleSelectCountry(country)}
+                        >
+                          {country.label}
+                        </li>
+                      ))
+                    ) : (
+                      <li className="px-4 py-2 text-center text-zinc-500">No encontrado</li>
+                    )}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Input de Teléfono */}
+            <input
+              type="text"
+              className="w-56 px-4 py-2 h-12 rounded-lg shadow-md border border-zinc-300 dark:border-zinc-600 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all duration-300 dark:bg-zinc-800 dark:text-white"
+              placeholder="Teléfono"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+
+            {/* Botón */}
+            <button
+              className="bg-primary text-white font-semibold px-4 py-2 h-12 rounded-lg text-xl shadow-md hover:bg-primary-dark transition-all duration-300 ease-in-out transform hover:scale-105"
+              onClick={handleSend}
+            >
+              Enviar
+            </button>
           </div>
 
-          {/* Input de Teléfono */}
-          <input
-            type="text"
-            className="w-56 px-4 py-2 h-12 rounded-lg shadow-md border border-zinc-300 dark:border-zinc-600 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all duration-300 dark:bg-zinc-800 dark:text-white" 
-            placeholder="Teléfono"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-
-          {/* Botón */}
-          <button
-            className="bg-primary text-white font-semibold px-4 py-2 h-12 rounded-lg text-xl shadow-md hover:bg-primary-dark transition-all duration-300 ease-in-out transform hover:scale-105"
-            onClick={handleSend}
-          >
-            Enviar
-          </button>
-        </div>
-
+          {/* Mensajes de Éxito y Error */}
+          {status === 'success' && (
+            <p className="mt-4 text-green-500">Número enviado con éxito.</p>
+          )}
+          {status === 'error' && (
+            <p className="mt-4 text-red-500">Error al enviar el número de teléfono.</p>
+          )}
+          {status === 'empty' && (
+            <p className="mt-4 text-yellow-500">Por favor, ingresa un número de teléfono.</p>
+          )}
         </CardHeader>
       </div>
       <div className="w-full lg:w-5/12 py-4 flex items-center justify-center">

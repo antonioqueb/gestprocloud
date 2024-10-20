@@ -1,19 +1,62 @@
+import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { handleContactForm } from "@/actions/contactFormHandler";
 
 export default function ContactSection() {
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Evita la recarga de la página al enviar el formulario
+
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const message = formData.get('message');
+    const name = formData.get('name');
+
+    // Incluimos user_id y company_id con los valores especificados
+    const data = {
+      email,
+      message,
+      name,
+      user_id: 2,
+      company_id: 1,
+    };
+
+    try {
+      const response = await fetch('https://contact.alphaqueb.com/create_contact_email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Agrega cualquier encabezado adicional si es necesario
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el mensaje');
+      }
+
+      const result = await response.json();
+      console.log('Respuesta de la API:', result);
+
+      setStatus('success');
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('error');
+    }
+  };
+
   return (
-    <div className="dark:bg-stone-900 mx-auto px-7 py-16 border  rounded-lg shadow-lg mb-16">
+    <div className="dark:bg-stone-900 mx-auto px-7 py-16 border rounded-lg shadow-lg mb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-center">
-          <h2 className=" text-3xl xl:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Contáctanos</h2>
+          <h2 className="text-3xl xl:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Contáctanos</h2>
           <p className="mt-4 text-lg text-zinc-500">
-          Estamos aquí para ayudarte con cualquier duda o inquietud que tengas. No dudes en contactarnos y uno de nuestros representantes se pondrá en contacto contigo lo antes posible.
+            Estamos aquí para ayudarte con cualquier duda o inquietud que tengas. No dudes en contactarnos y uno de nuestros representantes se pondrá en contacto contigo lo antes posible.
           </p>
-          <form action={handleContactForm} className="mt-8 space-y-6" >
+          <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div>
               <Label className="block text-lg font-medium text-zinc-700 dark:text-zinc-200" htmlFor="name">
                 Nombre
@@ -60,6 +103,12 @@ export default function ContactSection() {
               Enviar
             </Button>
           </form>
+          {status === 'success' && (
+            <p className="mt-4 text-green-500">Mensaje enviado con éxito.</p>
+          )}
+          {status === 'error' && (
+            <p className="mt-4 text-red-500">Error al enviar el mensaje.</p>
+          )}
         </div>
         <div className="flex items-center justify-center">
           <img
