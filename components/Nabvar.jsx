@@ -1,5 +1,5 @@
 "use client";
-// components/Nabvar.jsx
+
 import MyLightImage from '@/public/fb.svg';
 import MyDarkImage from '@/public/fn.svg';
 import * as React from "react";
@@ -13,20 +13,21 @@ import { useTheme } from "next-themes";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 
-const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
+const ListItem = React.forwardRef(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <a
           ref={ref}
+          href={href}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-zinc-100 dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground dark:text-zinc-100",
             className
           )}
           {...props}
         >
-          <div className="text-lg font-medium leading-none dark:text-zinc-100 dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">{title}</div>
-          <p className="line-clamp-2 text-lg leading-snug text-muted-foreground dark:text-zinc-100 dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">
+          <div className="text-lg font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>
@@ -40,10 +41,10 @@ ListItem.displayName = "ListItem";
 function NavigationMenuDemo() {
   return (
     <NavigationMenu>
-      <NavigationMenuList className="gap-15 2xl:gap-x-8 justify-center">
+      <NavigationMenuList className="gap-6 justify-center">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">Portafolio</NavigationMenuTrigger>
-          <NavigationMenuContent className="dark:text-zinc-100 dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">
+          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">Portafolio</NavigationMenuTrigger>
+          <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
@@ -70,7 +71,7 @@ function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">Servicios</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">Servicios</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               <ListItem href="/docs/primitives/alert-dialog" title="Alert Dialog">
@@ -95,12 +96,12 @@ function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/about" className="dark:text-zinc-100 font-medium text-lg dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">
+          <NavigationMenuLink href="/about" className="dark:text-zinc-100 font-medium text-lg">
             Nosotros
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/contact" className="dark:text-zinc-100 font-medium text-lg dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground">
+          <NavigationMenuLink href="/contact" className="dark:text-zinc-100 font-medium text-lg">
             Contacto
           </NavigationMenuLink>
         </NavigationMenuItem>
@@ -142,7 +143,6 @@ export default function Navbar() {
   }, [isDarkMode]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -151,7 +151,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex py-4 w-full justify-between items-center">
-      <div className="flex w-1/4 items-center gap-4 ">
+      <div className="flex items-center gap-4">
         <Link href="/">
           {isDarkMode ? (
             <div className="cursor-pointer">
@@ -174,15 +174,18 @@ export default function Navbar() {
           )}
         </Link>
       </div>
-      <NavigationMenu className="flex w-1/2 justify-center px-4">
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex">
         <NavigationMenuDemo />
-      </NavigationMenu>
-      <section className="flex w-1/4 items-center justify-end  gap-4">
-        <Link href="#contacto" className="dark:text-zinc-100 border rounded-lg text-sm dark:hover:bg-accent dark:hover:text-accent-foreground dark:focus:bg-accent dark:focus:text-accent-foreground p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">Contactar</Link>
-       
+      </div>
+      <div className="flex items-center gap-4">
+        <Link href="#contacto" className="hidden md:block dark:text-zinc-100 border rounded-lg text-sm p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">
+          Contactar
+        </Link>
         <div className="hidden md:block">
           <ThemeMode toggleTheme={toggleTheme} />
         </div>
+        {/* Mobile Menu Button */}
         <Drawer>
           <DrawerTrigger asChild>
             <button onClick={toggleMenu} className="md:hidden">
@@ -190,56 +193,65 @@ export default function Navbar() {
             </button>
           </DrawerTrigger>
           <DrawerContent
-            className={`flex flex-col items-start p-4 bg-white dark:bg-black ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            className={`fixed top-0 left-0 h-full w-3/4 bg-white dark:bg-black transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
               } transition-transform duration-300 ease-in-out`}
           >
-            <DrawerHeader className="w-full">
-              <DrawerTitle className="text-xl w-full flex font-semibold mb-4 items-center justify-between gap-8">
-                Menu
-                <ThemeMode toggleTheme={toggleTheme} />
-              </DrawerTitle>
+            <DrawerHeader className="flex items-center justify-between p-4">
+              <DrawerTitle className="text-xl font-semibold">Menú</DrawerTitle>
+              <button onClick={toggleMenu} className="text-xl">
+                ✕
+              </button>
             </DrawerHeader>
-            <DrawerDescription className="flex flex-col gap-2 pl-4 w-full">
+            <DrawerDescription className="flex flex-col gap-4 p-4">
               <NavigationMenuLink
                 href="/"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
                 Inicio
               </NavigationMenuLink>
               <NavigationMenuLink
                 href="/web-dev"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
-                Web Development
+                Desarrollo Web
               </NavigationMenuLink>
               <NavigationMenuLink
                 href="/app-dev"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
-                App Development
+                Desarrollo de Apps
               </NavigationMenuLink>
               <NavigationMenuLink
                 href="/custom-soft"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
-                Custom Software
+                Software a Medida
               </NavigationMenuLink>
               <NavigationMenuLink
                 href="/about"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
-                About
+                Nosotros
               </NavigationMenuLink>
               <NavigationMenuLink
                 href="/contact"
-                className="rounded-sm px-2 py-2 text-lg hover:bg-zinc-100 w-full text-left"
+                className="text-lg dark:text-zinc-100"
+                onClick={toggleMenu}
               >
-                Contact
+                Contacto
               </NavigationMenuLink>
+              <div className="mt-4">
+                <ThemeMode toggleTheme={toggleTheme} />
+              </div>
             </DrawerDescription>
           </DrawerContent>
         </Drawer>
-      </section>
+      </div>
     </nav>
   );
 }
