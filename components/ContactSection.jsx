@@ -49,7 +49,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="dark:bg-stone-900 mx-auto px-7 py-16 border rounded-lg shadow-lg mb-16">
+    <div id='contacto' className="dark:bg-stone-900 mx-auto px-7 py-16 border rounded-lg shadow-lg mb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl xl:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Contáctanos</h2>

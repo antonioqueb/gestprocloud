@@ -233,7 +233,7 @@ export default function Navbar() {
                 Nosotros
               </Link>
               <Link
-                href="/contact"
+                href="#contacto"
                 className="text-lg dark:text-zinc-100"
                 onClick={toggleMenu}
               >
