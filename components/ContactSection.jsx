@@ -88,7 +88,7 @@ export default function ContactSection() {
                 Mensaje
               </Label>
               <Textarea
-                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg"
+                className="mt-1 block w-full rounded-md border-zinc-300  dark:text-zinc-200 shadow-sm focus:border-primary focus:ring-primary sm:text-lg"
                 id="message"
                 name="message"
                 placeholder="Escribe tu mensaje aquí"
