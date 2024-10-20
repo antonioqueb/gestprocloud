@@ -53,19 +53,19 @@ function NavigationMenuDemo() {
                       <Image src="/fb.svg" width={210} height={210} alt="logo" />
                     </div>
                     <p className="text-lg leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and Tailwind CSS.
+                      Soluciones innovadoras diseñadas para sistematizar y mejorar la eficiencia operativa.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/projects/gestpro" title="Gestpro Cloud">
+                Gestión integral de proyectos empresariales en la nube, optimizando cada proceso.
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/projects/campeche" title="Gestiones Empresariales de Campeche">
+                Automatización de procesos administrativos para empresas de servicios.
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/projects/inventario-plus" title="Inventario Plus">
+                Control avanzado de inventario en tiempo real para empresas de logística.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -74,23 +74,17 @@ function NavigationMenuDemo() {
           <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">Servicios</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <ListItem href="/docs/primitives/alert-dialog" title="Alert Dialog">
-                A modal dialog that interrupts the user with important content and expects a response.
+              <ListItem href="/services/software-development" title="Desarrollo de Software">
+                Soluciones a medida que optimizan procesos críticos y mejoran la productividad.
               </ListItem>
-              <ListItem href="/docs/primitives/hover-card" title="Hover Card">
-                For sighted users to preview content available behind a link.
+              <ListItem href="/services/system-integration" title="Integraciones de Sistemas">
+                Conectamos plataformas clave para asegurar un flujo de trabajo eficiente.
               </ListItem>
-              <ListItem href="/docs/primitives/progress" title="Progress">
-                Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+              <ListItem href="/services/software-architecture" title="Arquitectura de Software">
+                Infraestructuras escalables que aseguran rendimiento, seguridad y adaptabilidad.
               </ListItem>
-              <ListItem href="/docs/primitives/scroll-area" title="Scroll-area">
-                Visually or semantically separates content.
-              </ListItem>
-              <ListItem href="/docs/primitives/tabs" title="Tabs">
-                A set of layered sections of content—known as tab panels—that are displayed one at a time.
-              </ListItem>
-              <ListItem href="/docs/primitives/tooltip" title="Tooltip">
-                A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+              <ListItem href="/services/business-optimization" title="Optimización Empresarial">
+                Mejoramos la eficiencia y reducimos costos mediante la automatización de procesos.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -157,7 +151,7 @@ export default function Navbar() {
             <div className="cursor-pointer">
               <Image
                 src={MyDarkImage}
-                alt="My image"
+                alt="Logo de Alphaqueb"
                 width={75}
                 height={75}
               />
@@ -166,7 +160,7 @@ export default function Navbar() {
             <div className="cursor-pointer">
               <Image
                 src={MyLightImage}
-                alt="My image"
+                alt="Logo de Alphaqueb"
                 width={75}
                 height={75}
               />
@@ -180,7 +174,7 @@ export default function Navbar() {
       </div>
       <div className="flex items-center gap-4">
         <Link href="#contacto" className="hidden md:block dark:text-zinc-100 border rounded-lg text-sm p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">
-          Contactar
+          Impulsa tu Negocio
         </Link>
         <div className="hidden md:block">
           <ThemeMode toggleTheme={toggleTheme} />
