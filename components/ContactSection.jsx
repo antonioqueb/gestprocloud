@@ -25,7 +25,7 @@ export default function ContactSection() {
     };
 
     try {
-      const response = await fetch('https://contact.alphaqueb.com/create_contact_email', {
+      const response = await fetch('https://contact.alphaqueb.com/create_lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
