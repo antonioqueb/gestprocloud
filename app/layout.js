@@ -13,8 +13,8 @@ const fontSans  = FontSans({
 })
 
 export const metadata = {
-  title: "GestPro - Soluciones Cloud",
-  description: "GestPro ofrece soluciones empresariales en la nube a medida para optimizar y transformar los procesos de negocio. Nuestros servicios se adaptan a las necesidades específicas de cada empresa, proporcionando herramientas avanzadas de gestión, colaboración y análisis de datos, todo respaldado por la seguridad y escalabilidad de la infraestructura en la nube. Permitimos a las organizaciones acelerar su crecimiento y mejorar su eficiencia operativa, todo accesible de manera remota y segura."
+  title: "ALPHAQUEB CONSULTING SAS",
+  description: "Transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales."
 };
 
 
