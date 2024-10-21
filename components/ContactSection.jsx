@@ -62,7 +62,7 @@ export default function ContactSection() {
                 Nombre
               </Label>
               <Input
-                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg"
+                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg text-zinc-900 dark:text-white"
                 id="name"
                 name="name"
                 placeholder="Ingresa tu nombre"
@@ -75,7 +75,7 @@ export default function ContactSection() {
                 Correo electrónico
               </Label>
               <Input
-                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg"
+                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg text-zinc-900 dark:text-white"
                 id="email"
                 name="email"
                 placeholder="Ingresa tu correo electrónico"
@@ -88,7 +88,7 @@ export default function ContactSection() {
                 Mensaje
               </Label>
               <Textarea
-                className="mt-1 block w-full rounded-md border-zinc-300  dark:text-zinc-200 shadow-sm focus:border-primary focus:ring-primary sm:text-lg"
+                className="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-primary focus:ring-primary sm:text-lg text-zinc-900 dark:text-white"
                 id="message"
                 name="message"
                 placeholder="Escribe tu mensaje aquí"
