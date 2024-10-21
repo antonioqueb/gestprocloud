@@ -6,8 +6,8 @@ import { useState } from "react";
 const copy = {
   title: "Consultora de software para sistematizar procesos y acelerar el crecimiento",
   description:
-    "En Alphaqueb Consulting transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales.",
-  bannerAlt: "Consultora de software - Impulsa la eficiencia y el crecimiento con Alphaqueb Consulting",
+    "En ALPHAQUEB CONSULTING SAS transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales.",
+  bannerAlt: "Consultora de software - Impulsa la eficiencia y el crecimiento con ALPHAQUEB CONSULTING SAS",
 };
 
 // Opciones de países

@@ -58,7 +58,7 @@ export default function Footer() {
                     )}
                 </Link>
                 <p className="text-base pl-4 dark:text-slate-100">
-                    Alphaqueb Consulting S.A.S. <br /> Acercando la sistematización a empresas y emprendimientos.
+                    ALPHAQUEB CONSULTING SAS <br /> Acercando la sistematización a empresas y emprendimientos.
                 </p>
             </aside>
             <nav className="md:place-self-center md:justify-self-end">
