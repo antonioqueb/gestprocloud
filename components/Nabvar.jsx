@@ -1,7 +1,7 @@
 "use client";
 
-import MyLightImage from '@/public/fb.svg';
-import MyDarkImage from '@/public/fn.svg';
+import MyLightImage from '@/public/dark.png';
+import MyDarkImage from '@/public/dark.png';
 import * as React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -113,7 +113,7 @@ function NavigationMenuDemo() {
                 <NavigationMenuLink asChild>
                   <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md" href="/">
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      <Image src="/fb.svg" width={210} height={210} alt="logo" />
+                      <Image src="/dark.png" width={210} height={210} alt="logo" />
                     </div>
                     <p className="text-lg leading-tight text-muted-foreground">
                       {COPY.tecnologias.mainDescription}
