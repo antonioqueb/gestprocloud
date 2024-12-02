@@ -39,10 +39,10 @@ export default function MultiCards() {
     <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 py-12">
       <Card className="shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-lg font-semibold text-primary dark:text-zinc-200">
+          <CardTitle className="text-lg font-semibold text-custom-orange dark:text-zinc-200">
             Ahorros Generados
           </CardTitle>
-          <FaDollarSign className="h-6 w-6 text-primary dark:text-zinc-200" /> 
+          <FaDollarSign className="h-6 w-6 text-custom-orange dark:text-zinc-200" /> 
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold">${dineroAhorrado} M</div>
@@ -54,10 +54,10 @@ export default function MultiCards() {
 
       <Card className="shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-lg font-semibold text-primary dark:text-zinc-200">
+          <CardTitle className="text-lg font-semibold text-custom-orange dark:text-zinc-200">
             Desarrollos Activos
           </CardTitle>
-          <FaCode className="h-6 w-6 text-primary dark:text-zinc-200" />
+          <FaCode className="h-6 w-6 text-custom-orange dark:text-zinc-200" />
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold">+{proyectosActivos}</div>
@@ -69,10 +69,10 @@ export default function MultiCards() {
 
       <Card className="shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-lg font-semibold text-primary dark:text-zinc-200">
+          <CardTitle className="text-lg font-semibold text-custom-orange dark:text-zinc-200">
             Clientes Activos
           </CardTitle>
-          <FaUsers className="h-6 w-6 text-primary dark:text-zinc-200" />
+          <FaUsers className="h-6 w-6 text-custom-orange dark:text-zinc-200" />
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold">+{clientesActivos}</div>
@@ -84,10 +84,10 @@ export default function MultiCards() {
 
       <Card className="shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-lg font-semibold text-primary dark:text-zinc-200">
+          <CardTitle className="text-lg font-semibold text-custom-orange dark:text-zinc-200">
             Clientes Totales
           </CardTitle>
-          <FaUsers className="h-6 w-6 text-primary dark:text-zinc-200" />
+          <FaUsers className="h-6 w-6 text-custom-orange dark:text-zinc-200" />
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold">+{clientesTotales}</div>

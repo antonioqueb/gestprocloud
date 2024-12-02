@@ -31,7 +31,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>
@@ -53,7 +53,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>
@@ -75,7 +75,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>
@@ -97,7 +97,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>
@@ -119,7 +119,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>
@@ -141,7 +141,7 @@ export default function ContentCardsBlog() {
               <p className="text-zinc-500 dark:text-zinc-400 mb-4">
                 Breve descripción del artículo. Esta es una descripción corta que resume el contenido del artículo.
               </p>
-              <Link className="text-lg font-medium text-primary hover:text-primary" href="#">
+              <Link className="text-lg font-medium text-custom-orange hover:text-custom-orange" href="#">
               Saber Más →
             </Link>
             </div>

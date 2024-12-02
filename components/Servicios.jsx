@@ -71,7 +71,7 @@ export default function Servicios() {
                 </p>
               </div>
               <Link
-                className="text-lg font-medium text-primary hover:text-primary pb-4 pl-2"
+                className="text-lg font-medium text-custom-orange hover:text-custom-orange pb-4 pl-2"
                 href="#"
               >
                 {copy.learnMore}

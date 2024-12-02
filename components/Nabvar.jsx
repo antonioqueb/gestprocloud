@@ -225,7 +225,7 @@ export default function Navbar() {
         <NavigationMenuDemo />
       </div>
       <div className="flex items-center gap-4">
-        <Link href="#contacto" className="hidden md:block dark:text-zinc-100 border rounded-lg text-sm p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">
+        <Link href="#contacto" className="hidden md:block dark:text-zinc-100 border rounded-lg text-sm p-2 hover:bg-zinc-100 bg-custom-orange text-zinc-50 dark:hover:bg-stone-600 hover:text-black">
           {COPY.navigation.impulseButton}
         </Link>
         <div className="hidden md:block">

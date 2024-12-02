@@ -60,7 +60,7 @@ export default function LastProjects() {
               />
               <div className="flex items-center gap-4 text-lg">
                 <Link
-                  className="text-lg font-medium text-primary hover:text-primary pt-4"
+                  className="text-lg font-medium text-custom-orange hover:text-custom-orange pt-4"
                   href="#"
                 >
                   {copy.learnMore}

@@ -14,7 +14,7 @@ export default function FAQ() {
           <CardTitle className="text-3xl xl:text-5xl font-semibold dark:text-zinc-50">Preguntas Frecuentes</CardTitle>
           <CardDescription className="mt-2 text-lg text-zinc-500 dark:text-zinc-400">
             Si tienes alguna pregunta personalizada,{" "}
-            <a href="/support" className="text-primary hover:underline">
+            <a href="/support" className="text-custom-orange hover:underline">
               contacta soporte
             </a>{" "}
             para recibir respuestas.
