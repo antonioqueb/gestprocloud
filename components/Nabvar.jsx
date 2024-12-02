@@ -13,6 +13,69 @@ import { useTheme } from "next-themes";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 
+const COPY = {
+  tecnologias: {
+    title: "Tecnologías",
+    mainDescription: "Soluciones tecnológicas diseñadas para transformar la manufactura con innovación y eficiencia.",
+    projects: [
+      {
+        href: "/projects/scada",
+        title: "Sistemas SCADA",
+        description: "Supervisión y control en tiempo real de procesos industriales para máxima eficiencia."
+      },
+      {
+        href: "/projects/automatizacion",
+        title: "Automatización Industrial",
+        description: "Implementación de soluciones robóticas que incrementan la productividad hasta un 40%."
+      },
+      {
+        href: "/projects/transformacion-digital",
+        title: "Transformación Digital",
+        description: "Estrategias personalizadas para digitalizar y optimizar operaciones manufactureras."
+      }
+    ]
+  },
+  serviciosIndustriales: {
+    title: "Servicios Industriales",
+    items: [
+      {
+        href: "/services/automatizacion",
+        title: "Automatización de Líneas",
+        description: "Diseño e implementación de soluciones que mejoran la eficiencia productiva."
+      },
+      {
+        href: "/services/scada",
+        title: "Sistemas SCADA",
+        description: "Monitoreo y control de procesos industriales en tiempo real para toma de decisiones."
+      },
+      {
+        href: "/services/capacitacion",
+        title: "Capacitación Tecnológica",
+        description: "Programas especializados en tecnologías emergentes para el sector manufacturero."
+      },
+      {
+        href: "/services/ciberseguridad",
+        title: "Ciberseguridad Industrial",
+        description: "Protección integral de sistemas críticos contra amenazas cibernéticas."
+      }
+    ]
+  },
+  navigation: {
+    about: { href: "/about", title: "Nosotros" },
+    contact: { href: "/contact", title: "Contacto" },
+    impulseButton: "Impulsa tu Manufactura",
+    mobileMenu: [
+      { href: "/", title: "Inicio" },
+      { href: "/services/automatizacion", title: "Automatización" },
+      { href: "/services/scada", title: "Sistemas SCADA" },
+      { href: "/services/capacitacion", title: "Capacitación" },
+      { href: "/about", title: "Nosotros" },
+      { href: "#contacto", title: "Contacto" }
+    ]
+  }
+};
+
+
 const ListItem = React.forwardRef(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
@@ -43,7 +106,7 @@ function NavigationMenuDemo() {
     <NavigationMenu>
       <NavigationMenuList className="gap-6 justify-center">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">Portafolio</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">{COPY.tecnologias.title}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -53,50 +116,39 @@ function NavigationMenuDemo() {
                       <Image src="/fb.svg" width={210} height={210} alt="logo" />
                     </div>
                     <p className="text-lg leading-tight text-muted-foreground">
-                      Soluciones innovadoras diseñadas para sistematizar y mejorar la eficiencia operativa.
+                      {COPY.tecnologias.mainDescription}
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/projects/gestpro" title="Gestpro Cloud">
-                Gestión integral de proyectos empresariales en la nube, optimizando cada proceso.
-              </ListItem>
-              <ListItem href="/projects/campeche" title="Gestiones Empresariales de Campeche">
-                Automatización de procesos administrativos para empresas de servicios.
-              </ListItem>
-              <ListItem href="/projects/inventario-plus" title="Inventario Plus">
-                Control avanzado de inventario en tiempo real para empresas de logística.
-              </ListItem>
+              {COPY.tecnologias.projects.map((project) => (
+                <ListItem key={project.href} href={project.href} title={project.title}>
+                  {project.description}
+                </ListItem>
+              ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">Servicios</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="dark:text-zinc-100 font-medium text-lg">{COPY.serviciosIndustriales.title}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <ListItem href="/services/software-development" title="Desarrollo de Software">
-                Soluciones a medida que optimizan procesos críticos y mejoran la productividad.
-              </ListItem>
-              <ListItem href="/services/system-integration" title="Integraciones de Sistemas">
-                Conectamos plataformas clave para asegurar un flujo de trabajo eficiente.
-              </ListItem>
-              <ListItem href="/services/software-architecture" title="Arquitectura de Software">
-                Infraestructuras escalables que aseguran rendimiento, seguridad y adaptabilidad.
-              </ListItem>
-              <ListItem href="/services/business-optimization" title="Optimización Empresarial">
-                Mejoramos la eficiencia y reducimos costos mediante la automatización de procesos.
-              </ListItem>
+              {COPY.serviciosIndustriales.items.map((service) => (
+                <ListItem key={service.href} href={service.href} title={service.title}>
+                  {service.description}
+                </ListItem>
+              ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/about" className="dark:text-zinc-100 font-medium text-lg">
-            Nosotros
+          <NavigationMenuLink href={COPY.navigation.about.href} className="dark:text-zinc-100 font-medium text-lg">
+            {COPY.navigation.about.title}
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/contact" className="dark:text-zinc-100 font-medium text-lg">
-            Contacto
+          <NavigationMenuLink href={COPY.navigation.contact.href} className="dark:text-zinc-100 font-medium text-lg">
+            {COPY.navigation.contact.title}
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -174,7 +226,7 @@ export default function Navbar() {
       </div>
       <div className="flex items-center gap-4">
         <Link href="#contacto" className="hidden md:block dark:text-zinc-100 border rounded-lg text-sm p-2 hover:bg-zinc-100 bg-primary text-zinc-50 dark:hover:bg-stone-600 hover:text-black">
-          Impulsa tu Negocio
+          {COPY.navigation.impulseButton}
         </Link>
         <div className="hidden md:block">
           <ThemeMode toggleTheme={toggleTheme} />
@@ -197,48 +249,16 @@ export default function Navbar() {
               </button>
             </DrawerHeader>
             <DrawerDescription className="flex flex-col gap-4 p-4">
-              <Link
-                href="/"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Inicio
-              </Link>
-              <Link
-                href="/web-dev"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Desarrollo Web
-              </Link>
-              <Link
-                href="/app-dev"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Desarrollo de Apps
-              </Link>
-              <Link
-                href="/custom-soft"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Software a Medida
-              </Link>
-              <Link
-                href="/about"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Nosotros
-              </Link>
-              <Link
-                href="#contacto"
-                className="text-lg dark:text-zinc-100"
-                onClick={toggleMenu}
-              >
-                Contacto
-              </Link>
+              {COPY.navigation.mobileMenu.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-lg dark:text-zinc-100"
+                  onClick={toggleMenu}
+                >
+                  {item.title}
+                </Link>
+              ))}
               <div className="mt-4">
                 <ThemeMode toggleTheme={toggleTheme} />
               </div>

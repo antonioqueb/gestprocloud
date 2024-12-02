@@ -4,10 +4,9 @@ import { useState } from "react";
 
 // Diccionario de textos (copy)
 const copy = {
-  title: "Consultora de software para sistematizar procesos y acelerar el crecimiento",
-  description:
-    "En Alphaqueb Consulting SAS transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales.",
-  bannerAlt: "Consultora de software - Impulsa la eficiencia y el crecimiento con Alphaqueb Consulting",
+  title: "Soluciones tecnológicas para transformar la manufactura mexicana",
+  description: "En Alphaqueb Consulting SAS, convertimos desafíos operativos en ventajas competitivas. Ofrecemos servicios personalizados de automatización, digitalización y optimización que reducen costos hasta un 30%, aumentan la productividad en un 40% y mejoran la calidad del producto para empresas manufactureras.",
+  bannerAlt: "Consultoría tecnológica - Impulsa la eficiencia y competitividad de tu empresa manufacturera con Alphaqueb Consulting",
 };
 
 // Opciones de países

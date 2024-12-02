@@ -14,7 +14,7 @@ const fontSans = FontSans({
 export const metadata = {
   title: "ALPHAQUEB CONSULTING SAS",
   description:
-    "Transformamos desafíos operativos en oportunidades de mejora mediante soluciones tecnológicas personalizadas. Nuestro enfoque está en incrementar la eficiencia, reducir costos y mejorar los procesos clave para que alcances tus objetivos empresariales.",
+    "Convertimos desafíos operativos en ventajas competitivas. Ofrecemos servicios personalizados de automatización, digitalización y optimización que reducen costos hasta un 30%, aumentan la productividad en un 40% y mejoran la calidad del producto para empresas manufactureras.",
 };
 
 export default function RootLayout({ children }) {

@@ -2,35 +2,34 @@ import Link from "next/link";
 
 // Diccionario de textos (copy)
 const copy = {
-  title: "Nuestros Servicios",
+  title: "Nuestros Servicios de Consultoría para Manufactura",
   description:
-    "Ofrecemos soluciones enfocadas en resolver retos específicos de tu negocio, integrando tecnología que potencia tu operación y facilita el crecimiento.",
+    "Transformamos procesos industriales mediante soluciones tecnológicas avanzadas que reducen costos, optimizan la producción y mejoran la competitividad de tu empresa manufacturera.",
   services: [
     {
-      title: "Desarrollo de Software Personalizado",
+      title: "Implementación de Sistemas SCADA",
       description:
-        "Diseñamos aplicaciones alineadas a tus necesidades operativas, optimizando procesos críticos y mejorando la productividad.",
-      imageSrc: "/equipo.jpg",
-      imageAlt: "Desarrollo de Software",
+        "Monitoreo y control en tiempo real de procesos industriales, optimizando la supervisión y reduciendo tiempos de inactividad hasta un 40%.",
+      imageSrc: "/scada.jpg",
+      imageAlt: "Sistemas SCADA para Manufactura",
     },
     {
-      title: "Integraciones de Sistemas",
+      title: "Automatización de Líneas de Producción",
       description:
-        "Conectamos plataformas y herramientas clave para garantizar un flujo de trabajo eficiente y una gestión centralizada.",
-      imageSrc: "/integrations.jpg",
-      imageAlt: "Integraciones de Sistemas",
+        "Diseñamos soluciones de automatización personalizadas que incrementan la capacidad de producción, mejoran la consistencia y reducen costos operativos.",
+      imageSrc: "/automatizacion.jpg",
+      imageAlt: "Automatización Industrial",
     },
     {
-      title: "Arquitectura de Software Escalable",
+      title: "Consultoría en Transformación Digital",
       description:
-        "Construimos infraestructuras robustas que aseguran rendimiento, seguridad y adaptabilidad al crecimiento futuro.",
-      imageSrc: "/devops.jpg",
-      imageAlt: "Arquitectura de Software",
+        "Acompañamiento estratégico para digitalizar procesos operativos, comerciales y administrativos, mejorando la toma de decisiones y la eficiencia global.",
+      imageSrc: "/digital.jpg",
+      imageAlt: "Transformación Digital Manufacturera",
     },
   ],
   learnMore: "Conoce más →",
 };
-
 
 export default function Servicios() {
   return (
