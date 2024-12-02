@@ -97,7 +97,7 @@ export default function ContactSection() {
               />
             </div>
             <Button
-              className="w-full justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="w-full justify-center rounded-md border border-transparent bg-custom-orange py-2 px-4 text-lg font-medium text-white shadow-sm hover:bg-custom-orange focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               type="submit"
             >
               Enviar
