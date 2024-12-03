@@ -204,7 +204,7 @@ export default function Banner() {
       </div>
       <div className="w-full lg:w-5/12 py-4 flex items-center justify-center">
         <Image
-          src="/banner.svg"
+          src="/industrial.png"
           width={500}
           height={200}
           alt={copy.bannerAlt}
